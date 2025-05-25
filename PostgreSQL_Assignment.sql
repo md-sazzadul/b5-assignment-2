@@ -103,8 +103,11 @@ VALUES (
         NULL
     );
 
-SELECT * FROM rangers;
 -- Problem 1
 INSERT INTO
     rangers ("name", region)
 VALUES ('Derek Fox', 'Coastal Plains');
+
+-- Problem 2
+SELECT COUNT(DISTINCT species_id) AS unique_species_count
+FROM sightings;
