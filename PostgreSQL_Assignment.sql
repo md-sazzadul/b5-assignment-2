@@ -102,3 +102,9 @@ VALUES (
         '2024-05-18 18:30:00',
         NULL
     );
+
+SELECT * FROM rangers;
+-- Problem 1
+INSERT INTO
+    rangers ("name", region)
+VALUES ('Derek Fox', 'Coastal Plains');
