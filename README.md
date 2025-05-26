@@ -70,3 +70,15 @@ CREATE TABLE example_varchar (
 ```
 
 এখানে যদি 'AB' insert করা হয় তাহলে exactly 'AB'-ই store করবে।
+
+# The purpose of the WHERE clause in a SELECT statement
+
+PostgreSQL এ কোনো একটা specific condition এ এক বা একাধিক record কে filter করার জন্য WHERE clause বেবহার করা হয়। উদাহরণ:
+
+```sql
+SELECT name, salary
+FROM employees
+WHERE department = 'HR';
+```
+
+এই query শুধু মাত্র 'HR' department এর row গুলোকেই return করবে।
