@@ -48,3 +48,25 @@ CREATE TABLE enrollments (
 
 এখানে:
 course_id একটি Foreign Key, যা courses টেবিলের course_id কে রেফার করে।
+
+# Difference between VARCHAR and CHAR data types
+
+VARCHAR এবং CHAR উভয়ই ডাটা store করার জন্য বেবহার করা হয়। CHAR বেবহার করা হয় যখন fixed length এর ডাটা store করা হয়। যদি নির্ধারিত length এর চেয়ে ছোট input দেওয়া হয় তাহলে এটি বাকি জায়গাটুকু space দিয়ে fill up করে দেয়। উদাহরণ:
+
+```sql
+CREATE TABLE example_char (
+    code CHAR(5)
+);
+```
+
+এখানে যদি 'AB' insert করা হয় তাহলে এটি 'AB ' store করবে। variable length এর ডাটা এর জন্য এটি slow.
+
+VARCHAR variable length এর character store করে। উদাহরণ:
+
+```sql
+CREATE TABLE example_varchar (
+    name VARCHAR(5)
+);
+```
+
+এখানে যদি 'AB' insert করা হয় তাহলে exactly 'AB'-ই store করবে।
