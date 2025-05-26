@@ -114,3 +114,11 @@ FROM sightings;
 
 -- Problem 3
 SELECT * FROM sightings WHERE "location" LIKE '%Pass%';
+
+-- Problem 4
+SELECT rangers.name, COUNT(sightings.sighting_id) as total_sightings
+FROM rangers
+    JOIN sightings USING (ranger_id)
+GROUP BY
+    rangers.name
+ORDER BY rangers.name;
