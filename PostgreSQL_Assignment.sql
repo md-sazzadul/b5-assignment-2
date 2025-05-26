@@ -122,3 +122,10 @@ FROM rangers
 GROUP BY
     rangers.name
 ORDER BY rangers.name;
+
+-- Problem 5
+SELECT common_name
+FROM species
+    LEFT JOIN sightings USING (species_id)
+WHERE
+    sightings.species_id IS NULL;
