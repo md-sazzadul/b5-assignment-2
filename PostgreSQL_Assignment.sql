@@ -129,3 +129,14 @@ FROM species
     LEFT JOIN sightings USING (species_id)
 WHERE
     sightings.species_id IS NULL;
+
+-- Problem 6
+SELECT
+    common_name,
+    sighting_time,
+    "name"
+FROM sightings
+    JOIN species USING (species_id)
+    JOIN rangers USING (ranger_id)
+ORDER BY sighting_time DESC
+LIMIT 2;
