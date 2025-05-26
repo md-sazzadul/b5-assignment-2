@@ -140,3 +140,13 @@ FROM sightings
     JOIN rangers USING (ranger_id)
 ORDER BY sighting_time DESC
 LIMIT 2;
+
+-- Problem 7
+UPDATE species
+SET
+    conservation_status = 'Historic'
+WHERE
+    EXTRACT(
+        YEAR
+        FROM discovery_date
+    ) < 1800;
