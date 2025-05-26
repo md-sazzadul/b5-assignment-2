@@ -166,3 +166,11 @@ SELECT
         ELSE 'Evening'
     END AS time_of_day
 FROM sightings;
+
+-- Problem 9
+DELETE FROM rangers
+WHERE
+    ranger_id NOT IN (
+        SELECT ranger_id
+        from sightings
+    );
