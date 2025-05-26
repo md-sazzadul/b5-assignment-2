@@ -15,6 +15,8 @@ CREATE TABLE employees (
 
 # Primary Key and Foreign Key concepts in PostgreSQL
 
+### Primary Key
+
 Primary Key হলো এমন একটি column বা column এর সমষ্টি যা প্রতিটি row বা record কে unique ভাবে চিহ্নিত করে। এটি NULL হতে পারে না এবং duplicate value গ্রহণ করে না। উদাহরণ:
 
 ```sql
@@ -27,3 +29,22 @@ CREATE TABLE employees (
 ```
 
 এখানে id হলো Primary Key, যা প্রতিটি employee কে unique ভাবে চিহ্নিত করবে।
+
+### Foreign Key
+
+Foreign Key হলো এমন একটি column যা অন্য একটি টেবিলের Primary Key এর সাথে সম্পর্ক (relationship) স্থাপন করে। এটি ডেটার integrity বজায় রাখে। উদাহরণ:
+
+```
+CREATE TABLE courses (
+    course_id SERIAL PRIMARY KEY,
+    course_name TEXT
+);
+
+CREATE TABLE enrollments (
+    enrollment_id SERIAL PRIMARY KEY,
+    course_id INT REFERENCES courses(course_id)
+);
+```
+
+এখানে:
+course_id একটি Foreign Key, যা courses টেবিলের course_id কে রেফার করে।
